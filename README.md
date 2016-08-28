@@ -17,7 +17,6 @@ npm install --save outclick
 ## Basic Usage
 Using outclick you can register event listeners on DOM elements to detect whether another element that was that element or another element inside it was clicked.
 The most common use of this is in menus.
-
 ```javascript
 var menu = document.getElementById('menu')
 
@@ -25,18 +24,14 @@ menu.onoutclick = function () {
 	hide(menu)
 }
 ```
-
 this can also be done using the addEventListener method
-
 ```javascript
 var menu = document.getElementById('menu')
 
 menu.addEventListener('outclick', function (e) {
 	hide(menu)
 })
-
 ```
-
 Alternatively, you can also use the html attribute outclick to trigger an event.
 This does not handle dynamic HTML, and we have no plans to add that, yet
 ```html
@@ -44,5 +39,3 @@ This does not handle dynamic HTML, and we have no plans to add that, yet
 ```
 
 ## Methods
-
-### 
