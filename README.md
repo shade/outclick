@@ -1,4 +1,5 @@
 # outclick 👉
+![code style : standard](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)
 A library used to detect DOM clicks outside a specific element
 
 
