@@ -1,3 +1,5 @@
+(function(window){
+
 var OutClickListeners = [{listener: null, exceptions: []}]
 
 var addEventListener = Node.prototype.addEventListener
@@ -29,7 +31,7 @@ window.Node.prototype.addEventListener = function (type, listener, exceptions) {
   }
 }
 
-document.addEventListener('click', function(e){
+window.document.addEventListener('click', function(e){
   for(var i = OutClickListeners.length; i--;){
     var listener = OutClickListeners[i]
     var contains = false
@@ -50,7 +52,7 @@ document.addEventListener('click', function(e){
 /** This handels the HTML onclick property */
 var elements = document.querySelectorAll('[outclick]')
 
-[].forEach.call(elements, function(e){
+;[].forEach.call(elements, function(e){
   var outclick = e.getAttribute('outclick')
   var func = Function(outclick)
   OutClickListeners.push({
@@ -58,3 +60,4 @@ var elements = document.querySelectorAll('[outclick]')
     exceptions: [e]
   })
 })
+})(window)

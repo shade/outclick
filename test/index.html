@@ -1,7 +1,13 @@
 <html>
 	<head>
+	  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+
 		<style>
-			#box{
+			#bar{
+				float: left;
+				width: 100%;
+			}
+			.box{
 				height: 200px;
 				width: 200px;
 				background-color: #DDD;
@@ -10,16 +16,24 @@
 				text-align: center;
 				font-size: 11px;
 				cursor: pointer;
+				display: inline-block;
+				margin: 5px;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="box1">Box1 .outclick prop</div>
-		<div id="box2">Box2 outclick event</div>
-		<div id="box3">Box3 outclick html</div>
+		<div id="bar">
+		<div id="box1" class="box">Box1 .outclick prop</div>
+		<div id="box2" class="box">Box2 outclick event</div>
+		<div id="box3" class="box" outclick="box3func()">Box3 outclick html</div>
+		<button id="testBtn">CLICK ME PLEASE!</button>
+		</div>
+		<br><br><br>
+		<div id="mocha"></div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.0.2/mocha.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
 		<script src="../src/index.js"></script>
-		<script type="text/javascript">
-			
-		</script>
+		<script type="text/javascript" src="./test.js"></script>
 	</body>
 </html>
