@@ -2,6 +2,19 @@ var OutClickListeners = [{listener: null, exceptions: []}]
 
 var addEventListener = Node.prototype.addEventListener
 
+/** This handles any listener set by .onclick prototype property */
+Object.defineProperty(Node.prototype, 'onoutclick', {
+  set: function (func) {
+    OutClickListeners[0] = {
+      exceptions: [this],
+      listener: func
+    }
+
+    return func
+  }
+})
+
+/** This handles all addEventListener */
 window.Node.prototype.addEventListener = function (type, listener, exceptions) {
   if (type == 'outclick') {
     exceptions = exceptions || []
@@ -15,17 +28,6 @@ window.Node.prototype.addEventListener = function (type, listener, exceptions) {
     addEventListener.apply(this,arguments)
   }
 }
-
-Object.defineProperty(Node.prototype, 'onoutclick', {
-  set: function (func) {
-    OutClickListeners[0] = {
-      exceptions: [this],
-      listener: func
-    }
-
-    return func
-  }
-})
 
 document.addEventListener('click', function(e){
   for(var i = OutClickListeners.length; i--;){
@@ -43,4 +45,16 @@ document.addEventListener('click', function(e){
       }
     }
   }
+})
+
+/** This handels the HTML onclick property */
+var elements = document.querySelectorAll('[outclick]')
+
+[].forEach.call(elements, function(e){
+  var outclick = e.getAttribute('outclick')
+  var func = Function(outclick)
+  OutClickListeners.push({
+    listener: func,
+    exceptions: [e]
+  })
 })

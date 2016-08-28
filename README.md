@@ -35,7 +35,8 @@ menu.addEventListener('outclick', function (e) {
 
 ```
 
-Alternatively, you can also use the html attribute outclick to trigger an event
+Alternatively, you can also use the html attribute outclick to trigger an event.
+This does not handle dynamic HTML, and we have no plans to add that, yet
 ```html
 <div outclick="someFunc()"></div>
 ```
