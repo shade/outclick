@@ -1,4 +1,4 @@
-# outclick
+# outclick 👉
 A library used to detect DOM clicks outside a specific element
 
 
@@ -34,3 +34,7 @@ menu.addEventListener('outclick', function (e) {
 })
 
 ```
+
+## Methods
+
+### 
