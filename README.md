@@ -31,7 +31,7 @@ var menu = document.getElementById('menu')
 
 menu.addEventListener('outclick', function (e) {
 	hide(menu)
-}, exceptions)
+})
 ```
 the exceptions parameter, is an array of elements that are an exception to the outclick event.
 ```javascript
