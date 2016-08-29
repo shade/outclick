@@ -1,8 +1,8 @@
 {
   "name": "outclick",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A library to detect whether a click was detected outside an element",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

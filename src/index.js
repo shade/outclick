@@ -1,3 +1,7 @@
+/**
+ * Version: 0.0.1
+ * Author: Joseph Thomas
+ */
 (function(window){
   
   var OutClickListeners = [{listener: null, exceptions: []}]
