@@ -1,6 +1,6 @@
 {
   "name": "outclick",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library to detect whether a click was detected outside an element",
   "main": "index.js",
   "scripts": {

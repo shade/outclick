@@ -21,7 +21,6 @@
     if (type == 'outclick') {
       exceptions = exceptions || []
       exceptions.push(this)
-
       OutClickListeners.push({
         exceptions: exceptions,
         listener: listener
@@ -41,10 +40,10 @@
           contains = true
           break
         }
+      }
 
-        if(!contains){
-          listener.listener && listener.listener(e)
-        }
+      if(!contains){
+        listener.listener && listener.listener(e)
       }
     }
   })

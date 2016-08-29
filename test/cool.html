@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<style>
+		@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400|Raleway:100,300,400|Varela+Round';
+
+			body{
+				background-color: #EEE
+			}
+			#menuBtn{
+				font-weight: 600;
+				font-size: 12px;
+				font-family: Raleway;
+				width: 100%;
+				background-color: #222;
+				color: #FFF;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				padding: 5px;
+				cursor: pointer;
+			}
+			#menu{
+				margin-top: 30px;
+				width: 160px;
+				font-family: Arial;
+				font-size: 12px;
+				border: 1px solid #DDD;
+				border-bottom: 0;
+				display: none;
+			}
+				#menu:last-child{
+					border-bottom: 0;
+				}
+				.menu__item{
+					font-family: Open Sans;
+					font-weight: 400;
+					font-size: 11px;
+					background-color: #fff;
+					padding: 7.5px;
+					cursor: pointer;
+				}
+				.menu__item:hover{
+					background-color: #DDD;
+				}
+					.menu__item--header{
+						border-bottom: 1px dashed #EEE;
+					}
+		</style>
+	</head>
+	<body>
+		<div id="menuBtn">menu</div>
+		<div id="menu">
+			<div class="menu__item">File</div>
+			<div class="menu__item">Open</div>
+			<div class="menu__item menu__item--header">Save</div>
+			<div class="menu__item">Exit</div>
+		</div>
+		<script src="../src/index.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+		<script>
+			menuBtn.onclick = function(){
+				Velocity(menu,'slideDown')
+			}
+			menu.addEventListener('outclick',function () {
+				Velocity(menu,'slideUp')
+			},[menuBtn])
+		</script>
+	</body>
+</html>

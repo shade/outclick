@@ -4,6 +4,7 @@
 
 A library used to detect DOM clicks outside a specific elements
 
+![Example use .gif](https://raw.githubusercontent.com/joe-tom/outclick/master/test/outclick.gif)
 
 ## Warning
 If you don't specifiy otherwise, this library will alter the addEventListener property. This should be okay for most cases but may lead to complications with other libraries. 
