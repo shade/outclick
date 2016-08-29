@@ -10,7 +10,7 @@ A library used to detect DOM clicks outside specific elements, useful for closin
 If you don't specifiy otherwise, this library will alter the addEventListener property. This should be okay for most cases but may lead to complications with other libraries. 
 
 ## Installation
-You can download the latest release or install it as an npm package
+You can download the latest [release](https://raw.githubusercontent.com/joe-tom/outclick/master/release/outclick.min.js) or install it as an npm package
 ```javascript
 npm install --save outclick
 ```
