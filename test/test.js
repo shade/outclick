@@ -7,8 +7,8 @@ var clear = function () {
 box1.onoutclick = function () {
   box1.setAttribute('data-test','GOOD')
 }
-box2.addEventListener('outclick', function () {
-	box2.setAttribute('data-test','GOOD')
+var eventListen = box2.addEventListener('outclick', function () {
+  box2.setAttribute('data-test','GOOD')
 })
 var box3func = function () {
 	box3.setAttribute('data-test','GOOD')
@@ -42,6 +42,12 @@ describe('box2', function () {
   it('Should have the value of GOOD now', function () {
     testBtn.click()
     assert.equal(box2.getAttribute('data-test'),'GOOD')
+    clear()
+  })
+  it('Should have removed the listener', function () {
+    box2.removeEventListener('outclick', eventListen)
+    testBtn.click()
+    assert(!box2.getAttribute('data-test'),'data-test is empty')
     clear()
   })
 })

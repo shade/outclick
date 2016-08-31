@@ -1,5 +1,5 @@
 /**
- * Version: 0.0.1
+ * Version: 0.0.6
  * Author: Joseph Thomas
  */
 (function(window){
@@ -7,6 +7,7 @@
   var OutClickListeners = [{listener: null, exceptions: []}]
 
   var addEventListener = Node.prototype.addEventListener
+  var removeEventListener = Node.prototype.removeEventListener
 
   /** This handles any listener set by .onclick prototype property */
   Object.defineProperty(Node.prototype, 'onoutclick', {
@@ -29,8 +30,9 @@
         exceptions: exceptions,
         listener: listener
       })
+      return listener
     } else {
-      addEventListener.apply(this,arguments)
+      addEventListener.apply(this, arguments)
     }
   }
 
@@ -52,7 +54,22 @@
     }
   })
 
-  /** This handels the HTML onclick property */
+  /** Getting rid of event listeners */
+  window.Node.prototype.removeEventListener = function (event, listener) {
+    if (event == 'outclick') {
+      for(var i = OutClickListeners.length; i--;){
+        var outListener = OutClickListeners[i]
+        if(outListener.exceptions[0] == this && outListener.listener.toString() == listener.toString()) {
+          OutClickListeners.splice(i,1)
+          break
+        }
+      }
+    } else {
+      removeEventListener(this, arguments)
+    }
+  } 
+
+  /** This handles the HTML onclick property */
   var elements = document.querySelectorAll('[outclick]')
 
   ;[].forEach.call(elements, function(e){
@@ -63,4 +80,5 @@
       exceptions: [e]
     })
   })
+
 })(window)
