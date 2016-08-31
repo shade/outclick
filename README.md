@@ -65,10 +65,14 @@ This does not handle dynamic HTML, and we have no plans to add that, yet
 ## Defined Methods and Attributes
 ### Node.addEventListener('outclick', listener, exceptions)
 This is like the normal addEventListener except it works for an outclick event
+
 **listener** - the function to be executed on an outclick
+
 **exceptions** - the exceptions to the outclick event, the current node is automatically one
+
 ### Node.removeEventListener('outclick', listener)
 This is like the normal removeEventListener except it works for the outclick events
+
 **listener** - the function to be executed on an outclick
 ### Node.onoutclick
 
