@@ -26,6 +26,13 @@ describe('box1', function () {
   	assert.equal(box1.getAttribute('data-test'),'GOOD')
   	clear()
   })
+  it('Should make this equal to it', function () {
+    box1.onoutclick = function () {
+      assert.equal(this,box1,'The same!')
+    }
+    testBtn.click()
+    clear()
+  })
   it('Should not change in value now', function () {
   	box1.onoutclick = null
   	testBtn.click()
@@ -42,6 +49,13 @@ describe('box2', function () {
   it('Should have the value of GOOD now', function () {
     testBtn.click()
     assert.equal(box2.getAttribute('data-test'),'GOOD')
+    clear()
+  })
+  it('Should make this equal to it', function () {
+    box2.addEventListener('outclick', function () {
+      assert.equal(this,box2,'The same!')
+    })
+    testBtn.click()
     clear()
   })
   it('Should have removed the listener', function () {

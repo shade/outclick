@@ -4,6 +4,7 @@
  */
 (function(window){
   
+  var registeredIds = {}
   var OutClickListeners = [{listener: null, exceptions: []}]
 
   var addEventListener = Node.prototype.addEventListener
@@ -14,7 +15,7 @@
     set: function (func) {
       OutClickListeners[0] = {
         exceptions: [this],
-        listener: func
+        listener: func && func.bind(this)
       }
 
       return func
@@ -24,13 +25,20 @@
   /** This handles all addEventListener */
   window.Node.prototype.addEventListener = function (type, listener, exceptions) {
     if (type == 'outclick') {
+      var id = null
+
+      while (registeredIds[(id = (Math.random() * 100000).toString())]) {}
+      registeredIds[id] = listener
+
       exceptions = exceptions || []
       exceptions.push(this)
       OutClickListeners.push({
         exceptions: exceptions,
-        listener: listener
+        listener: listener && listener.bind(this),
+        id: id
       })
-      return listener
+
+      return id
     } else {
       addEventListener.apply(this, arguments)
     }
@@ -57,9 +65,21 @@
   /** Getting rid of event listeners */
   window.Node.prototype.removeEventListener = function (event, listener) {
     if (event == 'outclick') {
+      var id = -1
+
+      if (typeof listener == 'function') {
+        for(i in registeredIds){
+          if (listener.toString() == registeredIds[i].toString()) {
+            id = i
+            break
+          }
+        }
+      } else {
+        id = listener
+      }
       for(var i = OutClickListeners.length; i--;){
         var outListener = OutClickListeners[i]
-        if(outListener.exceptions[0] == this && outListener.listener.toString() == listener.toString()) {
+        if(outListener.id == id) {
           OutClickListeners.splice(i,1)
           break
         }
