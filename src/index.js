@@ -7,8 +7,8 @@
   var registeredIds = {}
   var OutClickListeners = [{listener: null, exceptions: []}]
 
-  var addEventListener = Node.prototype.addEventListener
-  var removeEventListener = Node.prototype.removeEventListener
+  var addEventListener = Node.prototype.addEventListener.bind(document)
+  var removeEventListener = Node.prototype.removeEventListener.bind(document)
 
   /** This handles any listener set by .onclick prototype property */
   Object.defineProperty(Node.prototype, 'onoutclick', {

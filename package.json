@@ -1,6 +1,6 @@
 {
   "name": "outclick",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "A library used to detect DOM clicks outside specific elements, useful for closing menus",
   "main": "src/index.js",
   "scripts": {
