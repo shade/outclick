@@ -1,5 +1,5 @@
 /**
- * Version: 0.0.6
+ * Version: 0.1.0
  * Author: Joseph Thomas
  */
 (function(window){
@@ -7,8 +7,8 @@
   var registeredIds = {}
   var OutClickListeners = [{listener: null, exceptions: []}]
 
-  var addEventListener = Node.prototype.addEventListener.bind(document)
-  var removeEventListener = Node.prototype.removeEventListener.bind(document)
+  var addEventListener = Node.prototype.addEventListener
+  var removeEventListener = Node.prototype.removeEventListener
 
   /** This handles any listener set by .onclick prototype property */
   Object.defineProperty(Node.prototype, 'onoutclick', {
@@ -85,7 +85,7 @@
         }
       }
     } else {
-      removeEventListener(this, arguments)
+      removeEventListener.apply(this, arguments)
     }
   } 
 
