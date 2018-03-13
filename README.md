@@ -74,9 +74,6 @@ This is like the normal addEventListener except it works for an outclick event
 This is like the normal removeEventListener except it works for the outclick events
 
 **listener** - the function to be executed on an outclick
-### Node.onoutclick
-
-
 
 
 
