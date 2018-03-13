@@ -1,6 +1,5 @@
 # outclick 👉
 ![code style : standard](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)
-![build : passing](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
 A library used to detect DOM clicks outside specific elements, useful for closing menus
 
